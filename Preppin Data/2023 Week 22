@@ -1,0 +1,21 @@
+// https://preppindata.blogspot.com/2023/05/2023-week-22-student-attendance-vs-test.html
+
+SELECT
+        CASE
+            WHEN ATTENDANCE_PERCENTAGE > .9 THEN 'High Attendance'
+            WHEN ATTENDANCE_PERCENTAGE < .7 THEN 'Low Attendance'
+            ELSE 'Medium'
+        END AS ATTENDACE_FLAG,
+    SPLIT_PART(ST.STUDENT_NAME,'_',1) AS FIRST_NAME,
+    SPLIT_PART(ST.STUDENT_NAME,'_',2) AS LAST_NAME,
+    ATTENDANCE_PERCENTAGE,
+    STUDENT_ID,
+        CASE
+            WHEN SUBJECT LIKE 'M%' THEN 'MATH'
+            WHEN SUBJECT LIKE 'S%' THEN 'SCIENCE'
+            WHEN SUBJECT LIKE 'E%' THEN 'ENGLISH'
+        END AS SUBJECT,
+    TEST_SCORE,
+    ROUND(TEST_SCORE,0) AS TEST_SCORE_INTEGER
+FROM PD2023_WK22_ATTENDANCE_FIGURES AF
+JOIN PD2023_WK22_STUDENT_TEST_SCORES ST ON AF.student_name = ST.student_name ;
