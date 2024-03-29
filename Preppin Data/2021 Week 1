@@ -1,3 +1,4 @@
+// https://preppindata.blogspot.com/2021/01/2021-week-1.html
 SELECT  
 QUARTER(DATE) AS QUARTER,
 TRIM(SPLIT_PART(store_bike,'-',1)) AS STORE, 
@@ -11,4 +12,3 @@ DAY(DATE) AS DAY_OF_MONTH,
 FROM pd2021_wk01
 WHERE ORDER_ID > 10;
 
-![Screenshot 2024-03-29 141917](https://github.com/KinleyLy/SQL_PROJECTS/assets/165292786/fec4712a-906f-489d-8b46-fc74b7ccd7e9)
