@@ -1,5 +1,5 @@
--- CASE STUDY QUESTIONS
 -- 1. What is the total amount each customer spent at the restaurant?
+
 SELECT 
     CUSTOMER_ID,
     SUM(PRICE) AS TOTAL_SPENT,
@@ -8,6 +8,7 @@ JOIN MENU ON SALES.PRODUCT_ID = MENU.PRODUCT_ID
 GROUP BY CUSTOMER_ID;
 
 -- 2. How many days has each customer visited the restaurant?
+
 SELECT 
     CUSTOMER_ID,
     COUNT(DISTINCT ORDER_DATE) AS UNIQUE_DAYS_VISITED,
@@ -16,6 +17,7 @@ JOIN MENU ON SALES.PRODUCT_ID = MENU.PRODUCT_ID
 GROUP BY CUSTOMER_ID;
 
 -- 3. What was the first item from the menu purchased by each customer?
+
 WITH FD AS (
 SELECT 
         SALES.CUSTOMER_ID,
@@ -35,6 +37,7 @@ WHERE RN = 1;
 
 
 -- 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
+
 WITH ITEMTOTALS AS (
 SELECT
         PRODUCT_NAME,
@@ -56,7 +59,9 @@ SELECT
 FROM MOSTPURCHASEDITEM
 WHERE PR = 1
 ;
+
 -- 5. Which item was the most popular for each customer?
+
 WITH ITEMTOTALS AS (
 SELECT
         PRODUCT_NAME,
@@ -81,6 +86,7 @@ FROM MOSTPURCHASEDITEM
 WHERE PR = 2;
 
 -- 6. Which item was purchased first by the customer after they became a member?
+
 WITH JD AS (
 SELECT 
         JOIN_DATE, 
@@ -104,6 +110,7 @@ FROM JD
 WHERE RNK = 1;
 
 -- 7. Which item was purchased just before the customer became a member?
+
 WITH JD AS (
 SELECT 
         JOIN_DATE, 
@@ -125,7 +132,9 @@ SELECT
         ORDER_DATE
 FROM JD
 WHERE RNK = 1;
+
 -- 8. What is the total items and amount spent for each member before they became a member?
+
 SELECT
         SALES.CUSTOMER_ID,
         COUNT(SALES.PRODUCT_ID) AS TOTAL_ITEMS,
@@ -137,6 +146,7 @@ WHERE JOIN_DATE > ORDER_DATE
 GROUP BY SALES.CUSTOMER_ID;
 
 -- 9. If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+
 WITH PT AS (
 SELECT
         SALES.CUSTOMER_ID,
@@ -153,7 +163,9 @@ SELECT
         SUM(POINTS) AS POINTS
         FROM PT
         GROUP BY CUSTOMER_ID;
+
 -- 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
+
 SELECT 
         SALES.CUSTOMER_ID,
         SUM(CASE
