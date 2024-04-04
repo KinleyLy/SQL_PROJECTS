@@ -7,7 +7,7 @@ FROM SALES
 JOIN MENU ON SALES.PRODUCT_ID = MENU.PRODUCT_ID
 GROUP BY CUSTOMER_ID;
 
-<kbd>! <kbd>
+<kbd>!(https://github.com/KinleyLy/SQL_PROJECTS/assets/165292786/399f6bf6-956e-4678-9ca7-8dbeb45d2eef) <kbd>
 
 -- 2. How many days has each customer visited the restaurant?
 
