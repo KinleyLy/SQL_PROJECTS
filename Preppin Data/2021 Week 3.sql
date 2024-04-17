@@ -1,3 +1,5 @@
+-- https://preppindata.blogspot.com/2021/01/2021-week-3.html
+
 WITH Combined_Data AS (
 SELECT
     *
