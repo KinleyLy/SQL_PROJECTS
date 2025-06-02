@@ -1,3 +1,4 @@
 <a href="https://8weeksqlchallenge.com/case-study-1/"> Challenge Link Here!
 
-<img src="https://8weeksqlchallenge.com/images/case-study-designs/1.png.png" width="250" height="250>
+![image](https://github.com/user-attachments/assets/63e1e4a3-2140-4004-8e45-5c312c358a90)
+
